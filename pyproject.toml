@@ -10,7 +10,19 @@ python = "^3.12"
 fastapi = "^0.109.2"
 uvicorn = {extras = ["standard"], version = "^0.27.1"}
 python-multipart = "^0.0.9"
+torchserve = "^0.9.0"
+torch-model-archiver = "^0.9.0"
+torch-workflow-archiver = "^0.2.11"
+torch = {version = "^2.2.1+cpu", source = "pytorch-cpu"}
+torchvision = {version = "^0.17.1+cpu", source = "pytorch-cpu"}
+torchaudio = {version = "^2.2.1+cpu", source = "pytorch-cpu"}
+ultralytics = "^8.1.19"
 
+
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core"]

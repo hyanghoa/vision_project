@@ -17,6 +17,7 @@ torch = {version = "^2.2.1+cpu", source = "pytorch-cpu"}
 torchvision = {version = "^0.17.1+cpu", source = "pytorch-cpu"}
 torchaudio = {version = "^2.2.1+cpu", source = "pytorch-cpu"}
 ultralytics = "^8.1.19"
+albumentations = "^1.4.0"
 
 
 [[tool.poetry.source]]

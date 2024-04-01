@@ -1,0 +1,32 @@
+services:
+  frontend:
+    image: node:latest
+    command: ["sh", "run_server.sh"]
+    ports:
+      - 127.0.0.1:3000:3000
+    working_dir: /app
+    volumes:
+      - ./frontend/my-project:/app
+
+  backend_app:
+    image: python:3.12
+    command: ["sh", "run_server.sh"]
+    ports:
+      - 127.0.0.1:8000:8000
+    working_dir: /app
+    volumes:
+      - ./backend/app:/app
+
+  backend_model:
+    image: pytorch/torchserve:latest
+    command: ["sh", "run_server.sh"]
+    ports:
+      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8081:8081
+      - 127.0.0.1:8082:8082
+      - 127.0.0.1:7070:7070
+      - 127.0.0.1:7071:7071
+    working_dir: /home/model-server
+    volumes:
+      - ./backend/model/model-store:/home/model-server/model-store
+      - ./backend/model/script/run_server.sh:/home/model-server/run_server.sh
